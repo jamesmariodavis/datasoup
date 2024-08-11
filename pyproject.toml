@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "datasoup"
+version = "0.1.0"
+description = "companion to Data Soup substack"
+authors = ["James Davis <jamesmariodavis@gmail.com>"]
+readme = "README.md"
+packages = [{include = "datasoup"}]
+package-mode = false
+
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pandas = ">=2.2"
+plotly = ">=5.23"
+scikit-learn = ">=1.5"
+xgboost = ">=2.1"
+lightgbm = ">=4.5"
+statsmodels = ">=0.14"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
