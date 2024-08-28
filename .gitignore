@@ -1,1 +1,4 @@
 .venv/
+datasoup/dev_junk
+.DS_Store
+*.pyc

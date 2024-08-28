@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "companion to Data Soup substack"
 authors = ["James Davis <jamesmariodavis@gmail.com>"]
 readme = "README.md"
-packages = [{include = "datasoup"}]
+packages = [{ include = "datasoup" }]
 package-mode = false
 
 
@@ -16,6 +16,19 @@ scikit-learn = ">=1.5"
 xgboost = ">=2.1"
 lightgbm = ">=4.5"
 statsmodels = ">=0.14"
+jupyter = "^1.0.0"
+kaleido = "0.2.1"
+
+[tool.pyright]
+reportMatchNotExhaustive = true
+reportMissingImports = true
+reportMissingTypeStubs = false
+reportUnknownParameterType = true
+
+[tool.black]
+line-length = 140
+
+[tool.ruff]
 
 [build-system]
 requires = ["poetry-core"]

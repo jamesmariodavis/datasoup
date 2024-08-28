@@ -1,0 +1,16 @@
+{
+    "editor.inlineSuggest.enabled": true,
+    "[python]": {
+      "editor.formatOnType": true,
+      "editor.formatOnSave": true,
+    },
+    "jupyter.notebookFileRoot": "${workspaceFolder}",
+    "[toml]": {
+        "editor.formatOnSave": true,
+    },
+    "notebook.formatOnSave.enabled": true,
+    "python.testing.autoTestDiscoverOnSaveEnabled": false,
+    "[json]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+    }
+  }
