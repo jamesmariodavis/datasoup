@@ -1,0 +1,182 @@
+{
+  "users": {
+    "description": "Table describing user information and when they first shopped",
+    "columns": [
+      {
+        "name": "user_id",
+        "type": "integer",
+        "description": "Unique identifier for the user",
+        "constraints": {
+          "primary_key": true,
+          "not_null": true
+        }
+      },
+      {
+        "name": "first_name",
+        "type": "varchar(50)",
+        "description": "First name of the user"
+      },
+      {
+        "name": "last_name",
+        "type": "varchar(50)",
+        "description": "Last name of the user"
+      },
+      {
+        "name": "email",
+        "type": "varchar(100)",
+        "description": "Email address of the user",
+        "constraints": {
+          "unique": true
+        }
+      }
+    ]
+  },
+  "transactions": {
+    "description": "Table detailing transactions, each of which can be for multiple items",
+    "columns": [
+      {
+        "name": "item_scan_id",
+        "type": "integer",
+        "description": "Unique identifier for item scanned in the transaction",
+        "constraints": {
+          "primary_key": true,
+          "not_null": true
+        }
+      },
+      {
+        "name": "transaction_id",
+        "type": "integer",
+        "description": "Unique identifier for the transaction. There can be multiple items in a single transaction",
+        "constraints": {
+          "not_null": true
+        }
+      },
+      {
+        "name": "item_id",
+        "type": "integer",
+        "description": "Foreign key referencing the item that was scanned",
+        "constraints": {
+          "foreign_key": {
+            "reference_table": "items",
+            "reference_column": "item_id"
+          }
+        }
+      },
+      {
+        "name": "quantity",
+        "type": "integer",
+        "description": "Quantity of the item scanned in the transaction"
+      },
+      {
+        "name": "price",
+        "type": "decimal(10,2)",
+        "description": "Price of the item scanned in the transaction"
+      },
+      {
+        "name": "user_id",
+        "type": "integer",
+        "description": "Foreign key referencing the user who made the transaction",
+        "constraints": {
+          "foreign_key": {
+            "reference_table": "users",
+            "reference_column": "user_id"
+          }
+        }
+      },
+      {
+        "name": "store_id",
+        "type": "integer",
+        "description": "Foreign key referencing the store where the transaction occurred",
+        "constraints": {
+          "foreign_key": {
+            "reference_table": "stores",
+            "reference_column": "store_id"
+          }
+        }
+      },
+      {
+        "name": "transaction_date",
+        "type": "timestamp",
+        "description": "Timestamp of when the transaction occurred"
+      }
+    ]
+  },
+  "stores": {
+    "description": "Table describing store information, including location and other features",
+    "columns": [
+      {
+        "name": "store_id",
+        "type": "integer",
+        "description": "Unique identifier for the store",
+        "constraints": {
+          "primary_key": true,
+          "not_null": true
+        }
+      },
+      {
+        "name": "store_name",
+        "type": "varchar(100)",
+        "description": "Name of the store"
+      },
+      {
+        "name": "address",
+        "type": "varchar(200)",
+        "description": "Address of the store"
+      },
+      {
+        "name": "city",
+        "type": "varchar(50)",
+        "description": "City where the store is located"
+      },
+      {
+        "name": "state",
+        "type": "varchar(50)",
+        "description": "State where the store is located"
+      },
+      {
+        "name": "zip_code",
+        "type": "varchar(10)",
+        "description": "Zip code of the store location"
+      },
+      {
+        "name": "square_footage",
+        "type": "integer",
+        "description": "Square footage of the store"
+      },
+      {
+        "name": "num_employees",
+        "type": "integer",
+        "description": "Number of employees working at the store"
+      }
+    ]
+  },
+  "items": {
+    "description": "Table describing items sold in the store",
+    "columns": [
+      {
+        "name": "item_id",
+        "type": "integer",
+        "description": "Unique identifier for the item",
+        "constraints": {
+          "primary_key": true,
+          "not_null": true
+        }
+      },
+      {
+        "name": "item_name",
+        "type": "varchar(100)",
+        "description": "Name of the item"
+      },
+      {
+        "name": "category",
+        "type": "varchar(50)",
+        "description": "Category the item belongs to (e.g., produce, dairy, bakery)"
+      },
+      {
+        "name": "price",
+        "type": "decimal(10,2)",
+        "description": "Price of the item"
+      }
+    ]
+  }
+}
